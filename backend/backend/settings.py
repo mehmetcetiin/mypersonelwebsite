@@ -154,8 +154,9 @@ SIMPLE_JWT = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Cloudinary
-if 'CLOUDINARY_URL' in os.environ:
-    cloudinary_url = urlparse(config('CLOUDINARY_URL'))
+CLOUDINARY_URL_str = config('CLOUDINARY_URL', default=None)
+if CLOUDINARY_URL_str:
+    cloudinary_url = urlparse(CLOUDINARY_URL_str)
     cloudinary.config(
         cloud_name=cloudinary_url.hostname,
         api_key=cloudinary_url.username,
