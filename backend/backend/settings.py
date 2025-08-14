@@ -16,6 +16,7 @@ import datetime
 from decouple import config
 import dj_database_url
 import cloudinary
+from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -153,7 +154,13 @@ SIMPLE_JWT = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Cloudinary
-# The django-cloudinary-storage library automatically uses the CLOUDINARY_URL environment variable.
-# Explicitly defining CLOUDINARY_STORAGE is not necessary if CLOUDINARY_URL is set.
+if 'CLOUDINARY_URL' in os.environ:
+    cloudinary_url = urlparse(config('CLOUDINARY_URL'))
+    cloudinary.config(
+        cloud_name=cloudinary_url.hostname,
+        api_key=cloudinary_url.username,
+        api_secret=cloudinary_url.password,
+        secure=True
+    )
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
