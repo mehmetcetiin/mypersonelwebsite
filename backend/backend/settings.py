@@ -153,10 +153,7 @@ SIMPLE_JWT = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Cloudinary
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME", default=None),
-    "API_KEY": config("CLOUDINARY_API_KEY", default=None),
-    "API_SECRET": config("CLOUDINARY_API_SECRET", default=None),
-}
+# The django-cloudinary-storage library automatically uses the CLOUDINARY_URL environment variable.
+# Explicitly defining CLOUDINARY_STORAGE is not necessary if CLOUDINARY_URL is set.
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
