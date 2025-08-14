@@ -1,0 +1,169 @@
+/* --- General Styles --- */
+:root {
+    --primary-color-light: #4a90e2;
+    --background-color-light: #f4f4f8;
+    --text-color-light: #333;
+    --card-bg-light: #ffffff;
+    --header-bg-light: #ffffff;
+
+    --primary-color-dark: #76a9e8;
+    --background-color-dark: #121212;
+    --text-color-dark: #e0e0e0;
+    --card-bg-dark: #1e1e1e;
+    --header-bg-dark: #1e1e1e;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+/* --- Light Mode --- */
+body.light-mode {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+.light-mode .navbar {
+    background-color: var(--header-bg-light);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.light-mode .card {
+    background-color: var(--card-bg-light);
+}
+.light-mode section {
+    border-bottom-color: #e0e0e0;
+}
+
+
+/* --- Dark Mode --- */
+body.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+.dark-mode .navbar {
+    background-color: var(--header-bg-dark);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.dark-mode .card {
+    background-color: var(--card-bg-dark);
+}
+.dark-mode section {
+    border-bottom-color: #333;
+}
+.dark-mode input, .dark-mode textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #555;
+}
+
+
+/* --- Header & Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li {
+    margin-left: 20px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+/* --- Grids --- */
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* --- Cards --- */
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Contact Form --- */
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+#contact-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Simple hiding for now, can be replaced with a hamburger menu */
+    }
+}
+
+/* --- Loader --- */
+.loader {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+}
